@@ -6,7 +6,7 @@ import webbrowser
 import os
 import smtplib
 import subprocess
-import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 import memory
 import warnings
@@ -22,7 +22,7 @@ load_dotenv()
 
 # Configure Gemini API
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', 'your-api-key-here')
-genai.configure(api_key=GEMINI_API_KEY)
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Note: pyttsx3 is initialized but we now use PowerShell for more reliable TTS
 engine = pyttsx3.init()
@@ -130,8 +130,10 @@ def askGemini(query):
         else:
             prompt = query
 
-        model = genai.GenerativeModel('gemini-2.5-flash')
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt
+        )
         answer = response.text
         return answer
     except Exception as e:

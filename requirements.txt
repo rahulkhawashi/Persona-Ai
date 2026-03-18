@@ -4,5 +4,5 @@ SpeechRecognition
 wikipedia  
 PyAudio  
 pipwin  
-google-generativeai  
+google-genai  
 python-dotenv 
