@@ -86,7 +86,6 @@ The assistant now uses **Windows native Text-to-Speech** for reliable voice outp
 
 ## Troubleshooting
 
-- **No voice output**: Check Windows system volume and ensure speakers are connected
 - **Voice recognition doesn't work**: Check your microphone and ensure it's set as default
 - **Email fails**: Ensure you've enabled "Less secure apps" or use an app password
 - **Gemini API fails**: Verify your API key is correct in the `.env` file
