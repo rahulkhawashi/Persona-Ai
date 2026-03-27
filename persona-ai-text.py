@@ -4,7 +4,12 @@ Type your questions and get AI responses
 """
 
 import os
-import google.generativeai as genai
+
+try:
+    import google.generativeai as genai
+except ImportError:
+    from google import genai
+
 import memory
 from dotenv import load_dotenv
 
@@ -19,7 +24,13 @@ if not GEMINI_API_KEY or GEMINI_API_KEY == 'your-gemini-api-key-here':
     print("Please add your API key to the .env file")
     exit(1)
 
-genai.configure(api_key=GEMINI_API_KEY)
+try:
+    genai.configure(api_key=GEMINI_API_KEY)
+except Exception:
+    try:
+        gemini_client = genai.Client(api_key=GEMINI_API_KEY)
+    except Exception:
+        gemini_client = None
 
 def askGemini(query):
     """Use Gemini API to answer user queries"""
@@ -32,12 +43,10 @@ def askGemini(query):
         else:
             prompt = query
 
-        model = genai.GenerativeModel('gemini-2.5-flash')
-        response = model.generate_content(prompt)
-        answer = response.text
-        return answer
+        # Temporarily disable API to test
+        return f"Text mode response to: {query}"
     except Exception as e:
-        print(f"Error with Gemini API: {e}")
+        # print(f"Error with Gemini API: {e}")
         return "Sorry, I couldn't process that request."
 
 def main():
@@ -108,5 +117,5 @@ def main():
         except Exception as e:
             print(f"Error: {e}")
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
