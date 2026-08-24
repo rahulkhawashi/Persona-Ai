@@ -97,7 +97,14 @@ export default function WellnessCheckIn() {
       fetchHistory();
     } catch (err) {
       console.error("Prediction error:", err);
-      setErrorMsg(err.response?.data?.detail?.[0]?.msg || 'Error calculating prediction. Please check your inputs.');
+      const detail = err.response?.data?.detail;
+      const errMsg = Array.isArray(detail) ? detail[0]?.msg : (typeof detail === 'string' ? detail : 'Error calculating prediction. Please check your inputs.');
+
+      if (err.response?.status === 401) {
+        setErrorMsg('Authentication expired. Please log out and log in again.');
+      } else {
+        setErrorMsg(errMsg);
+      }
     } finally {
       setLoading(false);
     }
@@ -150,7 +157,7 @@ export default function WellnessCheckIn() {
 
       {/* Main Layout */}
       <main className="mh-layout">
-        
+
         {/* Left Form Panel */}
         <section className="mh-panel mh-form-panel">
           <form onSubmit={handleSubmit} noValidate>
@@ -316,23 +323,23 @@ export default function WellnessCheckIn() {
 
         {/* Right Column: Result Gauge & History Trend Chart Directly Below */}
         <div className="mh-right-col">
-          
+
           {/* Result Gauge Card */}
           <aside className="mh-panel mh-result-panel" aria-live="polite">
             <div className="mh-result-inner">
-              
+
               <svg className="mh-gauge" viewBox="0 0 240 160" aria-hidden="true">
                 <defs>
                   <linearGradient id="mhGaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#FB7185"/>
-                    <stop offset="45%" stopColor="#FBBF24"/>
-                    <stop offset="100%" stopColor="#34D399"/>
+                    <stop offset="0%" stopColor="#FB7185" />
+                    <stop offset="45%" stopColor="#FBBF24" />
+                    <stop offset="100%" stopColor="#34D399" />
                   </linearGradient>
                 </defs>
                 <path className="mh-gauge-track" d="M 30 140 A 100 100 0 0 1 210 140" />
-                <path 
-                  className="mh-gauge-fill" 
-                  d="M 30 140 A 100 100 0 0 1 210 140" 
+                <path
+                  className="mh-gauge-fill"
+                  d="M 30 140 A 100 100 0 0 1 210 140"
                   style={{ strokeDashoffset: String(gaugeOffset) }}
                 />
                 <g className="mh-gauge-ticks">
@@ -364,7 +371,7 @@ export default function WellnessCheckIn() {
               )}
 
               <div className="mh-ai-badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mh-sparkle-icon"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mh-sparkle-icon"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" /></svg>
                 <span>AI Prediction Core Active</span>
               </div>
 
