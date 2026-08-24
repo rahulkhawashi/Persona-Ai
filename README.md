@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=3B6B5E&height=200&section=header&text=PersonaAI&fontSize=90&fontColor=ffffff" alt="Header" />
   
-  # Persona AI : A 3D AI Desktop Assistant with Adaptive Behavior
+  # Persona AI : A 3D AI Desktop Assistant with Adaptive Behavior - With mental health prediction model
 
   [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&pause=1000&color=C5A880&center=true&vCenter=true&width=600&lines=Your+Intelligent+Desktop+Companion;Speech-to-Speech+Local+AI;Predicts+Mental+Health+Signals;3D+Holographic+Avatar)](https://git.io/typing-svg)
 
