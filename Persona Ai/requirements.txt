@@ -1,0 +1,16 @@
+  
+pyttsx3  
+SpeechRecognition  
+wikipedia  
+PyAudio  
+pipwin  
+google-genai  
+python-dotenv 
+requests
+feedparser
+plyer
+customtkinter
+Pillow
+fastapi
+uvicorn
+pydantic
