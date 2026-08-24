@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  /* Sage & Beige Warm Light Theme */
+  --bg-dark: #FDFBF7;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --border-glass: rgba(180, 170, 150, 0.22);
+  --border-focus: rgba(59, 107, 94, 0.4);
+
+  --text-main: #1F2925;
+  --text-soft: #4D5C56;
+  --text-muted: #8FA099;
+
+  --accent: #3B6B5E;
+  --accent-glow: rgba(59, 107, 94, 0.12);
+  --accent-light: #5E9B8B;
+
+  --emerald: #2E7D68;
+  --amber: #C5A880;
+  --rose: #C35B48;
+  --coral: #A83E2D;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --shadow-glass: 0 10px 30px -10px rgba(77, 92, 86, 0.08), 0 1px 3px 0 rgba(77, 92, 86, 0.03);
+  --shadow-lift: 0 20px 40px -15px rgba(77, 92, 86, 0.12), 0 1px 10px 0 rgba(77, 92, 86, 0.04);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(at 0% 0%, #F5F7F6 0, transparent 50%),
+    radial-gradient(at 100% 0%, #F7F3E9 0, transparent 50%),
+    radial-gradient(at 50% 100%, #EBF4F1 0, transparent 60%);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Frosted glass utility */
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glass);
+}
+
+/* Form Fields & Alignment */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  text-align: left;
+  width: 100%;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4D5C56;
+  text-align: left;
+  display: block;
+}
+
+.field-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.field-input-wrapper input {
+  width: 100%;
+  padding: 11px 14px 11px 40px;
+  background: #FFFFFF;
+  border: 1.5px solid #D2DBD6;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.field-input-wrapper input:focus {
+  border-color: #3B6B5E;
+  box-shadow: 0 0 0 3px rgba(59, 107, 94, 0.15);
+}
+
+.field-icon {
+  position: absolute;
+  left: 13px;
+  width: 17px;
+  height: 17px;
+  color: #8FA099;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.field-input-wrapper:focus-within .field-icon {
+  color: #3B6B5E;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #3B6B5E 0%, #608C80 100%);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.94rem;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.16s var(--ease), box-shadow 0.16s var(--ease), opacity 0.16s var(--ease);
+  box-shadow: 0 4px 14px rgba(59, 107, 94, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(59, 107, 94, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 107, 94, 0.18);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 107, 94, 0.28);
+}
