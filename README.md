@@ -99,7 +99,24 @@ Navigate to `http://localhost:5173` in your browser. Create an account, click th
 
 ---
 
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+## 👨‍💻 Author
+
 <div align="center">
-  <i>Built with ❤️ for techies who need a break.</i><br><br>
+
+## Rahul Khawshi
+
+[![GitHub](https://img.shields.io/badge/GitHub-rahulkhawashi-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rahulkhawashi)
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Rahul%20Khawashi-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rahulkhawshi)
+
+[![LeetCode](https://img.shields.io/badge/LeetCode-rahulkhawshi28-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/rahulkhawshi28/)
+
+
+</div>
+<div align="center">
+  <i>Built with ❤️ and Python for techies who need a break.</i><br><br>
   <img src="https://capsule-render.vercel.app/api?type=waving&color=3B6B5E&height=100&section=footer" width="100%"/>
 </div>
